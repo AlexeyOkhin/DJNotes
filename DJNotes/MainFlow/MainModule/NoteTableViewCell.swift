@@ -42,6 +42,12 @@ class NoteTableViewCell: UITableViewCell {
         setConstraints()
     }
 
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        titleNote.text = nil
+        descriptionNote.text = nil
+    }
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

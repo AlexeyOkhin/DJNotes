@@ -37,6 +37,9 @@ private extension MainViewController {
     func configureNavigationBar() {
         navigationController?.navigationBar.prefersLargeTitles = true
         title = "Notes"
+
+        let addNoteButton = UIBarButtonItem(image: UIImage(systemName: "square.and.pencil"), style: .plain, target: self, action: #selector(didTapAddNote))
+        navigationItem.rightBarButtonItem = addNoteButton
     }
 
     func setupConstraints() {
@@ -54,6 +57,11 @@ private extension MainViewController {
     func configureTableView() {
         notesTableView.dataSource = self
         notesTableView.register(NoteTableViewCell.self, forCellReuseIdentifier: NoteTableViewCell.identifier)
+    }
+
+    @objc
+    func didTapAddNote() {
+        print("add note push")
     }
 }
 
