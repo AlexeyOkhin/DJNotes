@@ -7,6 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C255DF329C70CEE00357FD6 /* NoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C255DF229C70CEE00357FD6 /* NoteTableViewCell.swift */; };
+		0C255DF929C7256900357FD6 /* AddNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C255DF829C7256900357FD6 /* AddNoteViewController.swift */; };
+		0C255DFC29C7304200357FD6 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C255DFB29C7304200357FD6 /* TextField.swift */; };
+		0C255DFF29C768F700357FD6 /* Date + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C255DFE29C768F700357FD6 /* Date + Extension.swift */; };
+		0C255E0229C7713700357FD6 /* Note+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C255E0029C7713700357FD6 /* Note+CoreDataClass.swift */; };
+		0C255E0329C7713700357FD6 /* Note+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C255E0129C7713700357FD6 /* Note+CoreDataProperties.swift */; };
+		0C255E0629C7726100357FD6 /* MainViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C255E0529C7726100357FD6 /* MainViewPresenter.swift */; };
+		0C255E0829C772B800357FD6 /* MainViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C255E0729C772B800357FD6 /* MainViewProtocol.swift */; };
+		0C255E0C29C772F300357FD6 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C255E0B29C772F300357FD6 /* Router.swift */; };
+		0C255E0E29C7731800357FD6 /* ModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C255E0D29C7731800357FD6 /* ModuleBuilder.swift */; };
+		0C255E1129C7736300357FD6 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C255E1029C7736300357FD6 /* CoreDataManager.swift */; };
+		0C255E1329C7760C00357FD6 /* AddNoteViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C255E1229C7760C00357FD6 /* AddNoteViewPresenter.swift */; };
+		0C255E1529C7763700357FD6 /* AddNoteViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C255E1429C7763700357FD6 /* AddNoteViewProtocol.swift */; };
 		0CEAB27229C6E99F00CC23B1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CEAB27129C6E99F00CC23B1 /* AppDelegate.swift */; };
 		0CEAB27629C6E99F00CC23B1 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CEAB27529C6E99F00CC23B1 /* MainViewController.swift */; };
 		0CEAB27C29C6E99F00CC23B1 /* DJNotes.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0CEAB27A29C6E99F00CC23B1 /* DJNotes.xcdatamodeld */; };
@@ -15,6 +28,19 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0C255DF229C70CEE00357FD6 /* NoteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteTableViewCell.swift; sourceTree = "<group>"; };
+		0C255DF829C7256900357FD6 /* AddNoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteViewController.swift; sourceTree = "<group>"; };
+		0C255DFB29C7304200357FD6 /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
+		0C255DFE29C768F700357FD6 /* Date + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date + Extension.swift"; sourceTree = "<group>"; };
+		0C255E0029C7713700357FD6 /* Note+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Note+CoreDataClass.swift"; sourceTree = "<group>"; };
+		0C255E0129C7713700357FD6 /* Note+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Note+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		0C255E0529C7726100357FD6 /* MainViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewPresenter.swift; sourceTree = "<group>"; };
+		0C255E0729C772B800357FD6 /* MainViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewProtocol.swift; sourceTree = "<group>"; };
+		0C255E0B29C772F300357FD6 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		0C255E0D29C7731800357FD6 /* ModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleBuilder.swift; sourceTree = "<group>"; };
+		0C255E1029C7736300357FD6 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		0C255E1229C7760C00357FD6 /* AddNoteViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteViewPresenter.swift; sourceTree = "<group>"; };
+		0C255E1429C7763700357FD6 /* AddNoteViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteViewProtocol.swift; sourceTree = "<group>"; };
 		0CEAB26E29C6E99F00CC23B1 /* DJNotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DJNotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0CEAB27129C6E99F00CC23B1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0CEAB27529C6E99F00CC23B1 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -35,6 +61,65 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0C255DF729C7251800357FD6 /* AddNoteModule */ = {
+			isa = PBXGroup;
+			children = (
+				0C255DFA29C7302600357FD6 /* Elements */,
+				0C255DF829C7256900357FD6 /* AddNoteViewController.swift */,
+				0C255E1229C7760C00357FD6 /* AddNoteViewPresenter.swift */,
+				0C255E1429C7763700357FD6 /* AddNoteViewProtocol.swift */,
+			);
+			path = AddNoteModule;
+			sourceTree = "<group>";
+		};
+		0C255DFA29C7302600357FD6 /* Elements */ = {
+			isa = PBXGroup;
+			children = (
+				0C255DFB29C7304200357FD6 /* TextField.swift */,
+			);
+			path = Elements;
+			sourceTree = "<group>";
+		};
+		0C255DFD29C768E200357FD6 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				0C255DFE29C768F700357FD6 /* Date + Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		0C255E0429C7721B00357FD6 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				0C255DF229C70CEE00357FD6 /* NoteTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		0C255E0929C772D400357FD6 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				0C255E0B29C772F300357FD6 /* Router.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		0C255E0A29C772DB00357FD6 /* ModuleBuilder */ = {
+			isa = PBXGroup;
+			children = (
+				0C255E0D29C7731800357FD6 /* ModuleBuilder.swift */,
+			);
+			path = ModuleBuilder;
+			sourceTree = "<group>";
+		};
+		0C255E0F29C7735100357FD6 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				0C255E1029C7736300357FD6 /* CoreDataManager.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		0CEAB26529C6E99F00CC23B1 = {
 			isa = PBXGroup;
 			children = (
@@ -54,8 +139,11 @@
 		0CEAB27029C6E99F00CC23B1 /* DJNotes */ = {
 			isa = PBXGroup;
 			children = (
+				0C255E0F29C7735100357FD6 /* Services */,
+				0C255E0A29C772DB00357FD6 /* ModuleBuilder */,
+				0C255E0929C772D400357FD6 /* Router */,
+				0C255DFD29C768E200357FD6 /* Extensions */,
 				0CEAB28B29C6EB5D00CC23B1 /* MainFlow */,
-				0CEAB28929C6EB3600CC23B1 /* Persistens */,
 				0CEAB28A29C6EB5000CC23B1 /* Application */,
 				0CEAB28829C6EA3100CC23B1 /* SupportingFiles */,
 			);
@@ -72,12 +160,14 @@
 			path = SupportingFiles;
 			sourceTree = "<group>";
 		};
-		0CEAB28929C6EB3600CC23B1 /* Persistens */ = {
+		0CEAB28929C6EB3600CC23B1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				0C255E0029C7713700357FD6 /* Note+CoreDataClass.swift */,
+				0C255E0129C7713700357FD6 /* Note+CoreDataProperties.swift */,
 				0CEAB27A29C6E99F00CC23B1 /* DJNotes.xcdatamodeld */,
 			);
-			path = Persistens;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		0CEAB28A29C6EB5000CC23B1 /* Application */ = {
@@ -91,6 +181,8 @@
 		0CEAB28B29C6EB5D00CC23B1 /* MainFlow */ = {
 			isa = PBXGroup;
 			children = (
+				0CEAB28929C6EB3600CC23B1 /* Model */,
+				0C255DF729C7251800357FD6 /* AddNoteModule */,
 				0CEAB28C29C6EB6700CC23B1 /* MainModule */,
 			);
 			path = MainFlow;
@@ -100,6 +192,9 @@
 			isa = PBXGroup;
 			children = (
 				0CEAB27529C6E99F00CC23B1 /* MainViewController.swift */,
+				0C255E0529C7726100357FD6 /* MainViewPresenter.swift */,
+				0C255E0729C772B800357FD6 /* MainViewProtocol.swift */,
+				0C255E0429C7721B00357FD6 /* Cell */,
 			);
 			path = MainModule;
 			sourceTree = "<group>";
@@ -175,8 +270,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				0CEAB27629C6E99F00CC23B1 /* MainViewController.swift in Sources */,
+				0C255E0E29C7731800357FD6 /* ModuleBuilder.swift in Sources */,
+				0C255DF929C7256900357FD6 /* AddNoteViewController.swift in Sources */,
+				0C255E0629C7726100357FD6 /* MainViewPresenter.swift in Sources */,
+				0C255DFC29C7304200357FD6 /* TextField.swift in Sources */,
+				0C255E0C29C772F300357FD6 /* Router.swift in Sources */,
+				0C255E1529C7763700357FD6 /* AddNoteViewProtocol.swift in Sources */,
 				0CEAB27229C6E99F00CC23B1 /* AppDelegate.swift in Sources */,
 				0CEAB27C29C6E99F00CC23B1 /* DJNotes.xcdatamodeld in Sources */,
+				0C255E0229C7713700357FD6 /* Note+CoreDataClass.swift in Sources */,
+				0C255DF329C70CEE00357FD6 /* NoteTableViewCell.swift in Sources */,
+				0C255DFF29C768F700357FD6 /* Date + Extension.swift in Sources */,
+				0C255E0329C7713700357FD6 /* Note+CoreDataProperties.swift in Sources */,
+				0C255E1329C7760C00357FD6 /* AddNoteViewPresenter.swift in Sources */,
+				0C255E1129C7736300357FD6 /* CoreDataManager.swift in Sources */,
+				0C255E0829C772B800357FD6 /* MainViewProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
