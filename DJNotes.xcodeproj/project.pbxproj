@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C255DF329C70CEE00357FD6 /* NoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C255DF229C70CEE00357FD6 /* NoteTableViewCell.swift */; };
+		0C255DF529C71F9200357FD6 /* NoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C255DF429C71F9200357FD6 /* NoteModel.swift */; };
 		0CEAB27229C6E99F00CC23B1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CEAB27129C6E99F00CC23B1 /* AppDelegate.swift */; };
 		0CEAB27629C6E99F00CC23B1 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CEAB27529C6E99F00CC23B1 /* MainViewController.swift */; };
 		0CEAB27C29C6E99F00CC23B1 /* DJNotes.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0CEAB27A29C6E99F00CC23B1 /* DJNotes.xcdatamodeld */; };
@@ -15,6 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0C255DF229C70CEE00357FD6 /* NoteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteTableViewCell.swift; sourceTree = "<group>"; };
+		0C255DF429C71F9200357FD6 /* NoteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteModel.swift; sourceTree = "<group>"; };
 		0CEAB26E29C6E99F00CC23B1 /* DJNotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DJNotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0CEAB27129C6E99F00CC23B1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0CEAB27529C6E99F00CC23B1 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -100,6 +104,8 @@
 			isa = PBXGroup;
 			children = (
 				0CEAB27529C6E99F00CC23B1 /* MainViewController.swift */,
+				0C255DF229C70CEE00357FD6 /* NoteTableViewCell.swift */,
+				0C255DF429C71F9200357FD6 /* NoteModel.swift */,
 			);
 			path = MainModule;
 			sourceTree = "<group>";
@@ -174,9 +180,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C255DF529C71F9200357FD6 /* NoteModel.swift in Sources */,
 				0CEAB27629C6E99F00CC23B1 /* MainViewController.swift in Sources */,
 				0CEAB27229C6E99F00CC23B1 /* AppDelegate.swift in Sources */,
 				0CEAB27C29C6E99F00CC23B1 /* DJNotes.xcdatamodeld in Sources */,
+				0C255DF329C70CEE00357FD6 /* NoteTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
