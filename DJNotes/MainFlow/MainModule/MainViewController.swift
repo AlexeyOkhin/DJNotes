@@ -7,14 +7,16 @@
 
 import UIKit
 
-class MainViewController: UIViewController {
+final class MainViewController: UIViewController {
+
+    //MARK: - Properties
+
+    var presenter: MainViewPresenterProtocol!
 
     //MARK: - Private Properties
 
-    var notes = [NoteModel(title: "TestNote", description: "Test Description")]
-
-    lazy var notesTableView: UITableView = {
-        let tableView = UITableView()
+    lazy private var notesTableView: UITableView = {
+        let tableView = UITableView(frame: .zero, style: .insetGrouped)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     }()
@@ -23,10 +25,11 @@ class MainViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemBackground
+        view.backgroundColor = .systemGray6
         setupConstraints()
         configureNavigationBar()
         configureTableView()
+        presenter.viewDidLoad()
     }
 }
 
@@ -36,7 +39,7 @@ private extension MainViewController {
 
     func configureNavigationBar() {
         navigationController?.navigationBar.prefersLargeTitles = true
-        title = "Notes"
+        title = "DJNotes"
 
         let addNoteButton = UIBarButtonItem(image: UIImage(systemName: "square.and.pencil"), style: .plain, target: self, action: #selector(didTapAddNote))
         navigationItem.rightBarButtonItem = addNoteButton
@@ -56,28 +59,82 @@ private extension MainViewController {
 
     func configureTableView() {
         notesTableView.dataSource = self
+        notesTableView.delegate = self
+        notesTableView.showsVerticalScrollIndicator = false
         notesTableView.register(NoteTableViewCell.self, forCellReuseIdentifier: NoteTableViewCell.identifier)
     }
 
     @objc
     func didTapAddNote() {
-        print("add note push")
+        presenter.addNote()
     }
 }
 
 //MARK: - UITableViewDataSource
 
 extension MainViewController: UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        notes.count
+        presenter.result?.count ?? 0
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: NoteTableViewCell.identifier, for: indexPath) as? NoteTableViewCell else { return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: NoteTableViewCell.identifier,
+                                                       for: indexPath)
+                as? NoteTableViewCell,
+                let note = presenter.result?[indexPath.row]
+                else { return UITableViewCell() }
 
-        let note = notes[indexPath.row]
         cell.configure(note: note)
         return cell
+    }
+}
+
+//MARK: - UITableViewDelegate
+
+extension MainViewController: UITableViewDelegate {
+
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            guard let note = presenter.result?[indexPath.row] else { return }
+            presenter.delete(note)
+        }
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let note = presenter.result?[indexPath.row] else { return }
+        presenter.editNote(note)
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+}
+
+// MARK: - Protocol methods
+extension MainViewController: MainViewProtocol {
+    func updateTable(_ updateType: TableControl) {
+        switch updateType {
+        case .beginUpdates:
+            notesTableView.beginUpdates()
+        case .endUpdates:
+            notesTableView.endUpdates()
+        case .reload:
+            notesTableView.reloadData()
+        }
+    }
+
+    func editTable(_ editingType: TableActions, indexPath: IndexPath?, newIndexPath: IndexPath?) {
+        switch editingType {
+        case .insert:
+            notesTableView.insertRows(at: [newIndexPath!], with: .automatic)
+        case .delete:
+            notesTableView.deleteRows(at: [indexPath!], with: .automatic)
+        case .move:
+            notesTableView.moveRow(at: indexPath!, to: newIndexPath!)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                self.notesTableView.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
+            }
+        case .update:
+            notesTableView.reloadRows(at: [indexPath!], with: .automatic)
+        }
     }
 }
 

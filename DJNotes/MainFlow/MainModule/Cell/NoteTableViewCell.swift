@@ -58,8 +58,6 @@ class NoteTableViewCell: UITableViewCell {
         contentView.addSubview(titleNote)
         contentView.addSubview(descriptionNote)
 
-        descriptionNote.setContentHuggingPriority(.defaultHigh, for: .vertical)
-
         NSLayoutConstraint.activate([
             titleNote.topAnchor.constraint(equalTo: contentView.topAnchor, constant: Constants.standartPadding/2),
             titleNote.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: Constants.standartPadding/2),
@@ -78,8 +76,8 @@ class NoteTableViewCell: UITableViewCell {
 
 extension NoteTableViewCell {
 
-    func configure(note: NoteModel) {
+    func configure(note: Note) {
         titleNote.text = note.title
-        descriptionNote.text = note.description
+        descriptionNote.text = note.desc
     }
 }
