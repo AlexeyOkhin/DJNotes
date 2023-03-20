@@ -77,8 +77,6 @@ private extension AddNoteViewController {
 
     @objc
     func didTapCancel() {
-        inputNoteTextView.text = ""
-        presenter.noteEdited(inputNoteTextView.text)
         dismiss(animated: true)
     }
 
