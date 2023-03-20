@@ -24,7 +24,6 @@ final class AddNoteViewController: UIViewController {
         let textView = UITextView()
         textView.backgroundColor = .systemFill
         textView.layer.borderWidth = 0.3
-        textView.delegate = self
         textView.font = .systemFont(ofSize: 17)
         textView.layer.cornerRadius = Constants.cornerRadius
         textView.translatesAutoresizingMaskIntoConstraints = false
@@ -78,21 +77,15 @@ private extension AddNoteViewController {
 
     @objc
     func didTapCancel() {
+        inputNoteTextView.text = ""
+        presenter.noteEdited(inputNoteTextView.text)
         dismiss(animated: true)
     }
 
     @objc
     func didTapSave() {
-
-    }
-}
-
-//MARK: - UITextViewDelegate
-
-extension AddNoteViewController: UITextViewDelegate {
-
-    func textViewDidEndEditing(_ textView: UITextView) {
-        presenter.noteEdited(textView.text)
+        presenter.noteEdited(inputNoteTextView.text)
+        dismiss(animated: true)
     }
 }
 
