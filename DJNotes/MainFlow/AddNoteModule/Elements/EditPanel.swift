@@ -7,6 +7,15 @@
 
 import UIKit
 
+protocol EditPanelDelegate: AnyObject {
+    func didTappedIncrementFont()
+    func didTappedDiscernment()
+    func didTappedSetBold()
+    func didTappedSetItalic()
+    func didTappedSetUnderline()
+    func didTappedSetInsertImage()
+}
+
 private enum Constants {
     static let standardPadding: CGFloat = 8
     static let buttonHeight: CGFloat = 35
@@ -14,10 +23,15 @@ private enum Constants {
 
 final class EditPanel: UIView {
 
+    weak var delegate: EditPanelDelegate?
+
+    private var currentSizeFont = 17
+
     lazy var incrementFontSizeButton: UIButton = {
         let button = UIButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setImage(UIImage(systemName: "plus"), for: .normal)
+        button.addTarget(self, action: #selector(tapIncrement), for: .touchUpInside)
         return button
     }()
 
@@ -25,6 +39,7 @@ final class EditPanel: UIView {
         let button = UIButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setImage(UIImage(systemName: "minus"), for: .normal)
+        button.addTarget(self, action: #selector(tapDiscernment), for: .touchUpInside)
         return button
     }()
 
@@ -32,6 +47,7 @@ final class EditPanel: UIView {
         let button = UIButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setImage(UIImage(systemName: "bold"), for: .normal)
+        button.addTarget(self, action: #selector(tapSetBoldFont), for: .touchUpInside)
         return button
     }()
 
@@ -39,13 +55,15 @@ final class EditPanel: UIView {
         let button = UIButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setImage(UIImage(systemName: "italic"), for: .normal)
+        button.addTarget(self, action: #selector(tapSetItalicFont), for: .touchUpInside)
         return button
     }()
 
-    lazy var normalFontButton: UIButton = {
+    lazy var underlineFontButton: UIButton = {
         let button = UIButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setImage(UIImage(systemName: "underline"), for: .normal)
+        button.addTarget(self, action: #selector(tapSetUnderlineFont), for: .touchUpInside)
         return button
     }()
 
@@ -53,6 +71,7 @@ final class EditPanel: UIView {
         let button = UIButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setImage(UIImage(systemName: "photo.on.rectangle"), for: .normal)
+        button.addTarget(self, action: #selector(tapInsertImage), for: .touchUpInside)
         return button
     }()
 
@@ -60,7 +79,7 @@ final class EditPanel: UIView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         let labelFont = label.font.pointSize
-        label.text = "\(labelFont) - Font"
+        label.text = "\(currentSizeFont) - Font"
         return label
     }()
 
@@ -78,12 +97,9 @@ final class EditPanel: UIView {
         addSubview(incrementFontSizeButton)
         addSubview(fontLabel)
         addSubview(discernmentFontSizeButton)
-//        addSubview(boldFontButton)
-//        addSubview(cursiveFontButton)
-//        addSubview(normalFontButton)
         addSubview(insertImageButton)
 
-        let stackView = UIStackView(arrangedSubviews: [boldFontButton, cursiveFontButton, normalFontButton])
+        let stackView = UIStackView(arrangedSubviews: [boldFontButton, cursiveFontButton, underlineFontButton])
         stackView.axis = .horizontal
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.distribution = .fillProportionally
@@ -117,4 +133,43 @@ final class EditPanel: UIView {
             self.heightAnchor.constraint(equalToConstant: 55)
         ])
     }
+
+    @objc
+    private func tapIncrement() {
+        if currentSizeFont < 36 {
+            currentSizeFont += 1
+            fontLabel.text = "\(currentSizeFont) - Font"
+            delegate?.didTappedIncrementFont()
+        }
+    }
+
+    @objc
+    private func tapDiscernment() {
+        if currentSizeFont > 8 {
+            currentSizeFont -= 1
+            fontLabel.text = "\(currentSizeFont) - Font"
+            delegate?.didTappedDiscernment()
+        }
+    }
+
+    @objc
+    private func tapSetBoldFont() {
+        delegate?.didTappedSetBold()
+    }
+
+    @objc
+    private func tapSetItalicFont() {
+        delegate?.didTappedSetItalic()
+    }
+
+    @objc
+    private func tapSetUnderlineFont() {
+        delegate?.didTappedSetUnderline()
+    }
+
+    @objc
+    private func tapInsertImage() {
+        delegate?.didTappedSetInsertImage()
+    }
+
 }

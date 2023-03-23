@@ -38,6 +38,7 @@ final class AddNoteViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         configureView()
+        editPanel.delegate = self
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -100,5 +101,110 @@ private extension AddNoteViewController {
 extension AddNoteViewController: AddNoteViewProtocol {
     func setNoteText(_ text: String) {
         inputNoteTextView.text = text
+    }
+}
+
+//MARK: - EditPanelDelegate
+
+extension AddNoteViewController: EditPanelDelegate {
+
+    func didTappedIncrementFont() {
+        guard let fontSize = inputNoteTextView.font?.pointSize else { return }
+
+        inputNoteTextView.font = .systemFont(ofSize: fontSize + 1)
+
+    }
+
+    func didTappedDiscernment() {
+        guard let fontSize = inputNoteTextView.font?.pointSize else { return }
+
+        inputNoteTextView.font = .systemFont(ofSize: fontSize - 1)
+
+    }
+
+    func didTappedSetBold() {
+        guard let fontSize = inputNoteTextView.font?.pointSize else { return }
+        inputNoteTextView.font = .boldSystemFont(ofSize: fontSize)
+    }
+
+    func didTappedSetItalic() {
+
+    }
+
+    func didTappedSetUnderline() {
+
+    }
+
+    func didTappedSetInsertImage() {
+        presentPhotoActionSheet()
+    }
+}
+
+extension AddNoteViewController {
+
+    //MARK: -  PhotoPicker Methods
+
+    private func presentPhotoActionSheet() {
+        let alert = UIAlertController()
+
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+
+            alert.addAction(UIAlertAction(title: "Сделать фото", style: .default, handler: {[weak self] _ in
+                self?.presentCamera()
+            }))
+        }
+
+        alert.addAction(UIAlertAction(title: "Выбрать из галереи", style: .default, handler: {[weak self] _ in
+            self?.presentPhotoPicker()
+        }))
+
+        alert.addAction(UIAlertAction(title: "Отмена", style: .cancel, handler: nil))
+        self.present(alert, animated: true)
+    }
+
+    private func presentCamera() {
+        let presentVC = UIImagePickerController()
+        presentVC.sourceType = .camera
+        presentVC.delegate = self
+        presentVC.allowsEditing = true
+        present(presentVC, animated: true)
+    }
+
+    private func presentPhotoPicker() {
+        let presentVC = UIImagePickerController()
+        presentVC.sourceType = .photoLibrary
+        presentVC.delegate = self
+        presentVC.allowsEditing = true
+        present(presentVC, animated: true)
+    }
+}
+
+//MARK: - UIImagePickerControllerDelegate, UINavigationControllerDelegate
+
+extension AddNoteViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+
+        picker.dismiss(animated: true)
+
+        guard let selectedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage else { return }
+        let attachment = NSTextAttachment()
+        attachment.image = selectedImage
+        let newImageWidth = (inputNoteTextView.bounds.size.width - 20)
+        let scale = newImageWidth/selectedImage.size.width
+        let newImageHeight = selectedImage.size.height * scale
+
+        attachment.bounds = CGRect.init(x: 0, y: 0, width: newImageWidth, height: newImageHeight)
+
+        let attString = NSAttributedString(attachment: attachment)
+
+        inputNoteTextView.textStorage.insert(attString, at: inputNoteTextView.selectedRange.location)
+
+    }
+
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+
+        picker.dismiss(animated: true)
+
     }
 }
