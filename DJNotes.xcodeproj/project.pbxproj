@@ -20,6 +20,7 @@
 		0C255E1129C7736300357FD6 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C255E1029C7736300357FD6 /* CoreDataManager.swift */; };
 		0C255E1329C7760C00357FD6 /* AddNoteViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C255E1229C7760C00357FD6 /* AddNoteViewPresenter.swift */; };
 		0C255E1529C7763700357FD6 /* AddNoteViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C255E1429C7763700357FD6 /* AddNoteViewProtocol.swift */; };
+		0CDB782229CC736C003DCB1B /* EditPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CDB782129CC736C003DCB1B /* EditPanel.swift */; };
 		0CEAB27229C6E99F00CC23B1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CEAB27129C6E99F00CC23B1 /* AppDelegate.swift */; };
 		0CEAB27629C6E99F00CC23B1 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CEAB27529C6E99F00CC23B1 /* MainViewController.swift */; };
 		0CEAB27C29C6E99F00CC23B1 /* DJNotes.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0CEAB27A29C6E99F00CC23B1 /* DJNotes.xcdatamodeld */; };
@@ -41,6 +42,7 @@
 		0C255E1029C7736300357FD6 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		0C255E1229C7760C00357FD6 /* AddNoteViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteViewPresenter.swift; sourceTree = "<group>"; };
 		0C255E1429C7763700357FD6 /* AddNoteViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteViewProtocol.swift; sourceTree = "<group>"; };
+		0CDB782129CC736C003DCB1B /* EditPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPanel.swift; sourceTree = "<group>"; };
 		0CEAB26E29C6E99F00CC23B1 /* DJNotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DJNotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0CEAB27129C6E99F00CC23B1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0CEAB27529C6E99F00CC23B1 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 			isa = PBXGroup;
 			children = (
 				0C255DFB29C7304200357FD6 /* TextField.swift */,
+				0CDB782129CC736C003DCB1B /* EditPanel.swift */,
 			);
 			path = Elements;
 			sourceTree = "<group>";
@@ -275,6 +278,7 @@
 				0C255E0629C7726100357FD6 /* MainViewPresenter.swift in Sources */,
 				0C255DFC29C7304200357FD6 /* TextField.swift in Sources */,
 				0C255E0C29C772F300357FD6 /* Router.swift in Sources */,
+				0CDB782229CC736C003DCB1B /* EditPanel.swift in Sources */,
 				0C255E1529C7763700357FD6 /* AddNoteViewProtocol.swift in Sources */,
 				0CEAB27229C6E99F00CC23B1 /* AppDelegate.swift in Sources */,
 				0CEAB27C29C6E99F00CC23B1 /* DJNotes.xcdatamodeld in Sources */,

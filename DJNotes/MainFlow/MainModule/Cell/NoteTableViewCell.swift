@@ -58,13 +58,12 @@ class NoteTableViewCell: UITableViewCell {
         contentView.addSubview(titleNote)
         contentView.addSubview(descriptionNote)
 
-        titleNote.setContentHuggingPriority(.defaultLow, for: .vertical)
+        titleNote.setContentHuggingPriority(.defaultHigh, for: .vertical)
 
         NSLayoutConstraint.activate([
             titleNote.topAnchor.constraint(equalTo: contentView.topAnchor, constant: Constants.standartPadding/2),
             titleNote.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: Constants.standartPadding/2),
             titleNote.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -Constants.standartPadding/2),
-
 
             descriptionNote.topAnchor.constraint(equalTo: titleNote.bottomAnchor, constant: Constants.standartPadding),
             descriptionNote.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: Constants.standartPadding/2),

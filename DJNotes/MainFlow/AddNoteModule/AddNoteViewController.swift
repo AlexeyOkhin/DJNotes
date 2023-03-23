@@ -20,6 +20,8 @@ final class AddNoteViewController: UIViewController {
 
     //MARK: - Private Properties
 
+    lazy private var editPanel = EditPanel()
+
     lazy private var inputNoteTextView: UITextView = {
         let textView = UITextView()
         textView.backgroundColor = .systemFill
@@ -66,8 +68,14 @@ private extension AddNoteViewController {
 
         title = "DJNote"
         view.addSubview(inputNoteTextView)
+        editPanel.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(editPanel)
         NSLayoutConstraint.activate([
-            inputNoteTextView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: Constants.standartPadding*2),
+            editPanel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: Constants.standartPadding*2),
+            editPanel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.standartPadding*2),
+            editPanel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constants.standartPadding*2),
+
+            inputNoteTextView.topAnchor.constraint(equalTo: editPanel.bottomAnchor, constant: Constants.standartPadding*2),
             inputNoteTextView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.standartPadding*2),
             inputNoteTextView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constants.standartPadding*2),
             inputNoteTextView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -Constants.standartPadding*2)
