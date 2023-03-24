@@ -20,15 +20,24 @@ final class AddNoteViewController: UIViewController {
 
     //MARK: - Private Properties
 
-    lazy private var editPanel = EditPanel()
+    private lazy var editPanel = EditPanel()
 
-    lazy private var inputNoteTextView: UITextView = {
+    private lazy var inputNoteTextView: UITextView = {
         let textView = UITextView()
         textView.backgroundColor = .systemFill
         textView.layer.borderWidth = 0.3
-        textView.font = .systemFont(ofSize: 17)
         textView.layer.cornerRadius = Constants.cornerRadius
         textView.translatesAutoresizingMaskIntoConstraints = false
+        textView.autocorrectionType = .no
+        textView.backgroundColor = .secondarySystemBackground
+        textView.textColor = .secondaryLabel
+        textView.font = UIFont.preferredFont(forTextStyle: .body)
+        textView.textContainerInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        textView.layer.shadowColor = UIColor.gray.cgColor;
+        textView.layer.shadowOffset = CGSize(width: 0.75, height: 0.75)
+        textView.layer.shadowOpacity = 0.4
+        textView.layer.shadowRadius = 20
+        textView.layer.masksToBounds = false
         return textView
     }()
 
@@ -131,12 +140,30 @@ extension AddNoteViewController: EditPanelDelegate {
 
     }
 
-    func didTappedSetUnderline() {
+    func didTappedSetFont() {
+        let config = UIFontPickerViewController.Configuration()
+        config.includeFaces = false
+        let fontVC = UIFontPickerViewController(configuration: config)
+        fontVC.delegate = self
+        present(fontVC, animated: true)
 
     }
 
     func didTappedSetInsertImage() {
         presentPhotoActionSheet()
+    }
+}
+
+//MARK: - UIFontPickerViewControllerDelegate
+extension AddNoteViewController: UIFontPickerViewControllerDelegate {
+    func fontPickerViewControllerDidCancel(_ viewController: UIFontPickerViewController) {
+        viewController.dismiss(animated: true)
+    }
+
+    func fontPickerViewControllerDidPickFont(_ viewController: UIFontPickerViewController) {
+        viewController.dismiss(animated: true)
+        guard let descripter = viewController.selectedFontDescriptor else { return }
+        inputNoteTextView.font = UIFont(descriptor: descripter, size: 17)
     }
 }
 

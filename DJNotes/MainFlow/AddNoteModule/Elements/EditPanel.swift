@@ -12,7 +12,7 @@ protocol EditPanelDelegate: AnyObject {
     func didTappedDiscernment()
     func didTappedSetBold()
     func didTappedSetItalic()
-    func didTappedSetUnderline()
+    func didTappedSetFont()
     func didTappedSetInsertImage()
 }
 
@@ -59,11 +59,11 @@ final class EditPanel: UIView {
         return button
     }()
 
-    lazy var underlineFontButton: UIButton = {
+    lazy var changeFontButton: UIButton = {
         let button = UIButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setImage(UIImage(systemName: "underline"), for: .normal)
-        button.addTarget(self, action: #selector(tapSetUnderlineFont), for: .touchUpInside)
+        button.setImage(UIImage(systemName: "character.hi"), for: .normal)
+        button.addTarget(self, action: #selector(tapChangeFont), for: .touchUpInside)
         return button
     }()
 
@@ -99,7 +99,7 @@ final class EditPanel: UIView {
         addSubview(discernmentFontSizeButton)
         addSubview(insertImageButton)
 
-        let stackView = UIStackView(arrangedSubviews: [boldFontButton, cursiveFontButton, underlineFontButton])
+        let stackView = UIStackView(arrangedSubviews: [boldFontButton, cursiveFontButton, changeFontButton])
         stackView.axis = .horizontal
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.distribution = .fillProportionally
@@ -163,8 +163,8 @@ final class EditPanel: UIView {
     }
 
     @objc
-    private func tapSetUnderlineFont() {
-        delegate?.didTappedSetUnderline()
+    private func tapChangeFont() {
+        delegate?.didTappedSetFont()
     }
 
     @objc
