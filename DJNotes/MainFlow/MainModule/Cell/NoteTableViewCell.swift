@@ -78,6 +78,9 @@ class NoteTableViewCell: UITableViewCell {
 extension NoteTableViewCell {
 
     func configure(note: Note) {
+        if note.title.isEmpty {
+            titleNote.text = "no title"
+        }
         titleNote.text = note.title
         descriptionNote.text = note.desc
     }
